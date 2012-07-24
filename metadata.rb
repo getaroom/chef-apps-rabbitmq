@@ -6,6 +6,7 @@ description      "Configures RabbitMQ for Apps"
 long_description IO.read(File.join(File.dirname(__FILE__), "README.md"))
 version          "1.0.0"
 
+depends "apps"
 depends "rabbitmq", ">= 1.2"
 
 supports "debian"
