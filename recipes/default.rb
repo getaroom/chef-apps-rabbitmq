@@ -25,7 +25,7 @@
 #
 
 search(:apps) do |app|
-  if (app['rabbitmq_role'] & node.run_list.roles).any?
+  if (app.fetch("rabbitmq_role", []) & node.run_list.roles).any?
     app['rabbitmq_vhosts'].each do |environment, app_vhost|
       if environment.include? node['framework_environment']
         rabbitmq_vhost app_vhost['vhost'] do
